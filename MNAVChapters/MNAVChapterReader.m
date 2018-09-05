@@ -187,10 +187,10 @@ long btoi(char* bytes, long size, long offset);
 @implementation MNAVChapterReaderMP3
 
 - (NSArray *)chaptersFromAsset:(AVAsset *)asset {
-    NSArray *its = [asset metadataForFormat:MNAVMetadataFormatID3];
-    NSArray *items = [AVMetadataItem metadataItemsFromArray:its
-                                                    withKey:MNAVMetadataID3MetadataKeyChapter
-                                                   keySpace:MNAVMetadataFormatID3];
+    NSArray<AVMetadataItem*> *its = [asset metadataForFormat:MNAVMetadataFormatID3];
+    NSArray<AVMetadataItem*> *items = [AVMetadataItem metadataItemsFromArray:its
+                                                                     withKey:MNAVMetadataID3MetadataKeyChapter
+                                                                    keySpace:MNAVMetadataFormatID3];
     
     NSArray <NSString *>*chapterIdentifiers = [self tableOfContentsFromMetadata:its];
     
